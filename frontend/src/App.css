@@ -74,9 +74,9 @@ button:hover {
 }
 
 
-/* .radio{
-  width: 40px;
-} */
+.radio{
+ padding-left: 40px;
+}
 
 .gender-field {
   display: flex;
@@ -90,10 +90,7 @@ button:hover {
   margin-right: 15px; /* Adjust the margin as per your preference */
 }
 
-/* .gender-field input[type="radio"] {
-  display: inline-block;
-  vertical-align: middle;
-} */
+
 
 
 /* Add these styles in your CSS file */

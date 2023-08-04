@@ -19,7 +19,7 @@ const UserList = ({ users }) => {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"></a></li>
+    
         <li><a href="/">User Form</a></li>
         
       </ul>

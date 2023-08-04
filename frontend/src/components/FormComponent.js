@@ -6,11 +6,26 @@ import '../App.css'
 import { Country, State, City } from "country-state-city";
 import { Link, useNavigate } from "react-router-dom";
 const validationSchema = Yup.object({
-  firstname: Yup.string().required("firstName is required"),
-  lastname: Yup.string().required("lastName is required"),
+  firstname: Yup.string().required("First Name is required"),
+  lastname: Yup.string().required("Last Name is required"),
   email: Yup.string().required("Email is required"),
   gender: Yup.string().required("Gender is required").oneOf(["male", "female", "other"], "Invalid gender"),
-  dateofbirth: Yup.string().required("date of birth is required"),
+  // dateofbirth: Yup.string().required("date of birth is required"),
+  dateofbirth: Yup.string()
+  .required("Date of birth is required")
+  .test("valid-age", "Date of birth must be greater than 14 years", (value) => {
+    if (!value) return false; // If the value is empty, don't perform the validation
+    const selectedDate = new Date(value);
+    const today = new Date();
+
+ 
+    const ageDiffInMillis = today - selectedDate;
+
+   
+    const ageInYears = ageDiffInMillis / (1000 * 60 * 60 * 24 * 365);
+
+    return ageInYears >= 14;
+  }),
   country: Yup.string().required("country is required"),
   state: Yup.string().required("state is required"),
   city: Yup.string().required("city is required"),
@@ -77,16 +92,16 @@ const navigate=useNavigate()
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      {/* <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
+      </button> */}
       <a class="navbar-brand" href="/">User Form</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"></a></li>
+    
         <li><a href="/display-info">User List</a></li>
        
       </ul>
@@ -134,19 +149,20 @@ const navigate=useNavigate()
           </div>
 
           <div className="field_value"> 
-        
+          <div className="gender-options">
             <label className="gender-field">Gender:</label>
-            <div className="gender-options">  
-          <label>
-              <Field type="radio" className="radio" name="gender" value="male" />
+      
+          <label className="radio">
+              <Field type="radio"  name="gender" value="male" />
              
            Male
            </label>
-       <label>
-              <Field type="radio" name="gender" className="radio" value="female" />
+       <label className="radio">
+              <Field type="radio" name="gender"  value="female" />
             Female
             </label>
             </div>
+          
             <ErrorMessage name="gender" component="div" className="error" />
           </div>
     
