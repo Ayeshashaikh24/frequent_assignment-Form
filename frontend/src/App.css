@@ -1,0 +1,117 @@
+/* Add your custom CSS styles here */
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+select {
+  width: 10%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+} 
+
+.inputvalue{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* .radio-label {
+  margin-right: 10px;
+} */
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+/* /* .gender-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+} */
+/* .gender-field label {
+  display: inline-block;
+  margin-right: 10px;
+} */ */
+
+
+.field_value{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+/* .radio{
+  width: 40px;
+} */
+
+.gender-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.gender-options label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px; /* Adjust the margin as per your preference */
+}
+
+/* .gender-field input[type="radio"] {
+  display: inline-block;
+  vertical-align: middle;
+} */
+
+
+/* Add these styles in your CSS file */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+}
