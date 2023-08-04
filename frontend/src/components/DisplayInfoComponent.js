@@ -1,8 +1,22 @@
 // src/components/UserList.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import ReactPaginate from 'react-paginate';
 const UserList = ({ users }) => {
+  const itemsPerPage = 12; // Number of items to show per page
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageCount = Math.ceil(users.length / itemsPerPage);
+
+  // Function to handle page change
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
+
+  // Get the current page's data
+  const currentUsers = users.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
   return (
     <>
       
@@ -42,7 +56,7 @@ const UserList = ({ users }) => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+          {currentUsers.map((user, index) => (
               <tr key={index}>
                 <td>{user.firstname}</td>
                 <td>{user.lastname}</td>
@@ -56,6 +70,20 @@ const UserList = ({ users }) => {
             ))}
           </tbody>
         </table>
+        <ReactPaginate
+          previousLabel={'Previous'}
+          nextLabel={'Next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageChange}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        />
+    
       </div>
     
     </>
